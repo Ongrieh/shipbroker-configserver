@@ -1,0 +1,13 @@
+debug: true
+
+spring:
+  application:
+    name: shipbroker-gateway
+
+server:
+  port: 9090
+
+eureka:
+  client:
+    register-with-eureka: false
+    

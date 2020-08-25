@@ -2,9 +2,9 @@
 # = Debugging & Logging
 # ===============================
 debug: false
-logging.level:  net.sf.ehcache: debug
-  org.hibernate.type: trace
-  com.shipbroker.cargoprovider: debug
+#logging.level:#  net.sf.ehcache: debug
+#  org.hibernate.type: trace
+#  com.shipbroker.cargoprovider: debug
 
 # ===============================
 # = Server Settings
