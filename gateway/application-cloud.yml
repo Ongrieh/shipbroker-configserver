@@ -3,6 +3,8 @@ debug: true
 spring:
   application:
     name: shipbroker-gateway
+  zipkin:
+    base-url: http://localhost:9411
 
 server:
   port: 9090
