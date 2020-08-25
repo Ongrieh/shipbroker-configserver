@@ -1,4 +1,4 @@
-debug: true
+
 
 spring:
   application:
@@ -12,4 +12,8 @@ server:
 eureka:
   client:
     register-with-eureka: false
+    
+logging:
+  level:
+    org.springframework.cloud.gateway: debug 
     
