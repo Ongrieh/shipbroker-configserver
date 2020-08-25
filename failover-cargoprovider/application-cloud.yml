@@ -10,7 +10,7 @@ debug: false
 # = Server Settings
 # ===============================
 server:
-  port: 18085
+  port: 8085
 
 # ===============================
 # = Application
