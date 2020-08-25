@@ -1,0 +1,43 @@
+# ===============================
+# = Logging
+# ===============================
+logging:
+  level:
+    org.apache.http: debug
+
+# ===============================
+# = Server
+# ===============================
+server:
+  port: 8080
+ 
+# ===============================
+# = Application
+# ===============================
+spring:
+  application:
+    name: webservice
+
+# ===============================
+# = ActiveMQ
+# ===============================
+  artemis:
+    user: artemis
+    password: simetraehcapa
+    
+# ===============================
+# = Feign Hystrix
+# ===============================
+feign.hystrix.enabled: true
+
+# ===============================
+# = Application
+# ===============================
+shipbroker:
+  api:    cargoprovider:
+      apihost: "http://localhost:8081"
+  configuration:
+    maxtotalconnections: 100
+    maxperrouteconnections: 20
+    connectionrequesttimeout: 3000
+    sockettimeout: 3000
