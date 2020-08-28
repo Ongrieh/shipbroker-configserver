@@ -1,7 +1,7 @@
 spring:
   datasource:
     username: postgres
-    password: {cipher}090899f9085ef9a951619f843bc2760de702d429f55b33ed295afebf4f4695f4
+    password: '{cipher}790899f9085ef9a951619f843bc2760de702d429f55b33ed295afebf4f4695f4'
   artemis:
     user: artemis
-    password: {cipher}521eb872fac2a236507f5343bd9deabedc9b5da99095718158e157b040e63910
+    password: '{cipher}521eb872fac2a236507f5343bd9deabedc9b5da99095718158e157b040e63910'
