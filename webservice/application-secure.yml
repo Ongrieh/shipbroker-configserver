@@ -1,0 +1,4 @@
+spring:
+  artemis:
+    user: artemis
+    password: '{cipher}521eb872fac2a236507f5343bd9deabedc9b5da99095718158e157b040e63910'
