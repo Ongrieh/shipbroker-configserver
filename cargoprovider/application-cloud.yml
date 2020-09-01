@@ -2,9 +2,10 @@
 # = Debugging & Logging
 # ===============================
 debug: false
-#logging.level:#  net.sf.ehcache: debug
-#  org.hibernate.type: trace
-#  com.shipbroker.cargoprovider: debug
+logging.level:
+  net.sf.ehcache: debug
+  org.hibernate.type: trace
+  com.shipbroker.cargoprovider: debug
 
 # ===============================
 # = Server Settings
@@ -18,8 +19,12 @@ server:
 spring:
   application:
     name: cargoprovider
-#  zipkin:
-#    base-url: http://localhost:9411
+  zipkin:
+    enabled: true
+    base-url: http://localhost:9411/
+  data:
+# Spring data hangs when not set
+    jpa.repositories.bootstrap-mode: default
 
 # ===============================
 # = Hibernate datasource
@@ -35,19 +40,29 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
+#      ddl-auto: update
 #      ddl-auto: validate
     database-platform: postgresql
     properties:
-      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
-      hibernate.format_sql: true
-      hibernate.current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
-      hibernate.generate_statistics: true
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+        generate_statistics: true
+
   
 # ===============================
 # = cache - config
-# ===============================         hibernate.cache.use_second_level_cache: true      hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory      javax.persistance.sharedCache.mode: ENABLE_SELECTIVE
-      hibernate.cache.use_query_cache: true
+# ===============================   
+        cache:
+          use_second_level_cache: true
+          region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+          use_query_cache: 'true'
+#          ehcache.missing_cache_strategy: create
+      javax:
+        persistance.sharedCache.mode: ENABLE_SELECTIVE
+      
 #      net.sf.ehcache.configurationResourceName: classpath:/cache/ehcache.xml
 #      net.sf.ehcache.configurationResourceName: /src/main/resources/cache/ehcache.xml
 
@@ -55,4 +70,13 @@ spring:
 # = liquibase - config
 # ===============================
   liquibase:
-    change-log: classpath:/db/changelog/db.changelog-master.xml    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    enabled: true
+    
+# ===============================
+# = liquibase - config
+# ===============================
+
+eureka:
+  instance:
+    prefer-ip-address: true
