@@ -2,13 +2,6 @@
 # = Debugging & Logging
 # ===============================
 debug: false
-#logging.level:#  net.sf.ehcache: debug
-#  org.hibernate.type: trace
-#  com.shipbroker.cargoprovider: debug
-
-# ===============================
-# = Server Settings
-# ===============================
 server:
   port: 8085
 
@@ -19,17 +12,8 @@ spring:
   application:
     name: failover-cargoprovider
 
-# ===============================
-# = Hibernate datasource
-# =============================== 
-#  datasource:
-#    url: jdbc:postgresql://localhost:5432/shipbroker
-#    driver-class-name: org.postgresql.Driver
-#    username: postgres
-#    password: postgres
-#    initialization-mode: ALWAYS
-
-  datasource:    url: jdbc:h2:mem:testdb
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL;
     driverClassName: org.h2.Driver
     username: sa    
     password: 
@@ -42,34 +26,7 @@ spring:
 # ===============================
   jpa:
     show-sql: true
-    
-    database-platform: org.hibernate.dialect.H2Dialect
-#    hibernate:
-#      ddl-auto: update
-#      ddl-auto: validate
-#    database-platform: postgresql
     properties:
-#      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
-      hibernate.format_sql: true
-#      hibernate.current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
-#      hibernate.generate_statistics: true
-#  
-# ===============================
-# = cache - config
-# ===============================   #      hibernate.cache.use_second_level_cache: true#      hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory#      javax.persistance.sharedCache.mode: ENABLE_SELECTIVE
-#      hibernate.cache.use_query_cache: true
-#      net.sf.ehcache.configurationResourceName: classpath:/cache/ehcache.xml
-#      net.sf.ehcache.configurationResourceName: /src/main/resources/cache/ehcache.xml
-#
-# ===============================
-# = liquibase - config
-# ===============================
-#  liquibase:
-#    change-log: classpath:/db/changelog/db.changelog-master.xml#    enabled: true
-#    
-# ===============================
-# = ActiveMQ - config
-# ===============================
-#  artemis:
-#    user: artemis
-#    password: simetraehcapa
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
