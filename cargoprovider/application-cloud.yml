@@ -6,6 +6,9 @@ logging.level:
   net.sf.ehcache: debug
   org.hibernate.type: trace
   com.shipbroker.cargoprovider: debug
+  org.hibernate.SQL: DEBUG
+  com.zaxxer.hikari.HikariConfig: DEBUG
+  org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 # ===============================
 # = Server Settings
@@ -33,6 +36,19 @@ spring:
     url: jdbc:postgresql://localhost:5432/shipbroker
     driver-class-name: org.postgresql.Driver
     initialization-mode: ALWAYS
+    hikari:
+      maximum-pool-size: 20
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false
+      
     
 # ===============================
 # = JPA configurations
